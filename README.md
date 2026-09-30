@@ -30,3 +30,23 @@ npx skills@latest add robert-flo/skills/NAME_OF_SKILL
 ```bash
 npx skills@latest add robert-flo/skills --list
 ```
+
+---
+
+## 🧠 The three skill makers, in short
+
+Matt Pocock's picks have one thing in common: years of hands-on practice in their field, turned into skills an agent can actually run. Their directions barely overlap.
+
+**[@poteto](https://x.com/poteto) — Lauren Tan** · engineering workflows, code quality, parallel collaboration
+React core team, worked on React Compiler; previously Netflix, Meta and Cursor. Her `pstack` is the set of engineering skills she uses daily: get agents to follow a rigorous process, review their own work and verify what they ship, then run tasks in parallel with confidence.
+→ https://github.com/cursor/plugins/tree/main/pstack
+
+**[@dexhorthy](https://x.com/dexhorthy) — Dex Horthy** · agent architecture, context engineering, shipping real software
+Founder of HumanLayer and author of *12-Factor Agents*, with a background in DevOps, Kubernetes and infrastructure. His work answers one practical question: how do you get LLM-based software good enough for real users? In practice that means managing context and organising research and planning so agents move work forward in large codebases.
+→ https://github.com/humanlayer/skills
+
+**[@emilkowalski](https://x.com/emilkowalski) — Emil Kowalski** · interface design, animation, interaction detail
+Design Engineer at Linear, previously Vercel; creator of Sonner, Vaul and animations.dev. His skills encode the judgment calls of design engineering: which easing curve, how long an animation should run, where motion is worth adding, and the small details that decide whether an interface feels polished.
+→ https://github.com/emilkowalski/skills
+
+**Takeaway:** when picking a skill, look first at what its author has been working on for years. The deeper the experience, the more the judgment baked into the skill is worth borrowing.
