@@ -32,7 +32,7 @@ It leads each section with the recommended answer, and skips whatever exploratio
 | Decision | What it proposes | When it actually asks |
 | --- | --- | --- |
 | **Issue tracker** | the one matching your `git remote` | always: this is the one real choice |
-| **Triage labels** | keep the five canonical names (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`) | only if the `triage` skill is installed |
+| **Triage labels** | keep the five canonical names (`needs-triage`, `needs-info`, `ready-for-agent`, `wontfix`, and `ready-to-merge` for the `ready-for-human` role) | only if the `triage` skill is installed |
 | **Domain docs** | single-context: one `GLOSSARY.md` plus `docs/adr/` at the root | only if it spots monorepo signals, and then it offers a multi-context `GLOSSARY-MAP.md` |
 
 The tracker options:
