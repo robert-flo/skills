@@ -50,3 +50,19 @@ Design Engineer at Linear, previously Vercel; creator of Sonner, Vaul and animat
 → https://github.com/emilkowalski/skills
 
 **Takeaway:** when picking a skill, look first at what its author has been working on for years. The deeper the experience, the more the judgment baked into the skill is worth borrowing.
+
+---
+
+## Working on this fork
+
+This fork follows ADR 0024: GitHub's default branch is `personal`. `upstream` is a fast-forward mirror of `mattpocock/skills` `main`. Do not push to that upstream.
+
+A fresh clone already checks out `personal` once that default is set. If an existing clone still tracks `main`:
+
+```bash
+git fetch origin
+git checkout personal
+git branch --set-upstream-to=origin/personal personal
+```
+
+Day-to-day commits go through PRs into `personal`. The daily sync workflow lives in `.github/workflows/sync-personal-fork.yml`.
