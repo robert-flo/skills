@@ -8,6 +8,11 @@
 #   git branch --set-upstream-to=origin/personal personal
 #
 # No packages phase: this repo is not a package feed.
+#
+# Protected `personal` needs a PAT. Set repo secret FORK_SYNC_PAT with
+# contents + issues (and bypass / admin so force-with-lease to `personal`
+# succeeds). The reusable maps it as `token`. Empty secret falls back to
+# GITHUB_TOKEN inside the reusable, which will not push a protected branch.
 
 name: Sync personal fork
 
@@ -20,7 +25,6 @@ on:
 permissions:
   contents: write
   issues: write
-  pull-requests: write
 
 jobs:
   sync:
@@ -28,4 +32,5 @@ jobs:
     with:
       upstream_repo: mattpocock/skills
       upstream_branch: main
-    secrets: inherit
+    secrets:
+      token: ${{ secrets.FORK_SYNC_PAT }}
