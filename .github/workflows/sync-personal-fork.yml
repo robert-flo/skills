@@ -1,0 +1,31 @@
+# Thin caller for ADR 0024 (piloto on this fork).
+# Day-to-day work lands on `personal` via PRs. `upstream` is a fast-forward
+# mirror of mattpocock/skills main. Do not push to that upstream remote.
+#
+# Existing clones that still track origin/main:
+#   git fetch origin
+#   git checkout personal
+#   git branch --set-upstream-to=origin/personal personal
+#
+# No packages phase: this repo is not a package feed.
+
+name: Sync personal fork
+
+on:
+  schedule:
+    # 04:00 America/El_Salvador (UTC-6) -> 10:00 UTC
+    - cron: "0 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  sync:
+    uses: robert-flo/fleet/.github/workflows/sync-personal-fork.yml@main
+    with:
+      upstream_repo: mattpocock/skills
+      upstream_branch: main
+    secrets: inherit
