@@ -31,6 +31,19 @@ npx skills@latest add robert-flo/skills/NAME_OF_SKILL
 npx skills@latest add robert-flo/skills --list
 ```
 
+### 4. Update already installed skills
+To keep skills up to date when new changes or skills are added:
+```bash
+# Update all installed skills
+npx skills@latest update
+
+# Update a specific skill
+npx skills@latest update NAME_OF_SKILL
+
+# If installed globally (-g)
+npx skills@latest update -g
+```
+
 ---
 
 ## 🧠 The three skill makers, in short
