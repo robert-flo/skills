@@ -1,0 +1,7 @@
+[Unit]
+Description=Update the skills clone and relink its skills
+
+[Service]
+Type=oneshot
+# Path of the clone; scripts/install-sync.sh rewrites it when the clone lives elsewhere.
+ExecStart=%h/Work/tries/pj-fleet/fo-skills/scripts/skills-sync.sh
