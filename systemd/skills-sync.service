@@ -3,5 +3,7 @@ Description=Update the skills clone and relink its skills
 
 [Service]
 Type=oneshot
+# A stalled fetch must not keep the unit activating, or the timer never fires again.
+TimeoutStartSec=5min
 # Path of the clone; scripts/install-sync.sh rewrites it when the clone lives elsewhere.
 ExecStart=%h/Work/tries/pj-fleet/fo-skills/scripts/skills-sync.sh
