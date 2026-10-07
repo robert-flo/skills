@@ -9,13 +9,14 @@ set -euo pipefail
 #   scripts/install-sync.sh --uninstall  disable the timer, remove the units and
 #                                        ~/.local/state/skills-sync; the clone and
 #                                        the skill symlinks stay
-#   --yes, -y                            replace real directories that share a
-#                                        skill's name without asking
+#   --yes, -y                            replace entries that share a skill's
+#                                        name without asking
 #
-# link-skills.sh replaces a real directory in ~/.claude/skills or
-# ~/.agents/skills with a symlink when it has a skill's name. Before that, this
-# script lists those directories and asks (on /dev/tty, so it works under
-# curl | bash); with no terminal and no --yes it stops without changing anything.
+# link-skills.sh replaces anything in ~/.claude/skills or ~/.agents/skills that
+# has a skill's name: it deletes real directories and repoints symlinks to
+# other places (such as Omarchy's). Before that, this script lists those
+# entries and asks (on /dev/tty, so it works under curl | bash); with no
+# terminal and no --yes it stops without changing anything.
 #
 # Safe to run again: unchanged units are left alone and an active timer stays
 # as it is. SKILLS_SYNC_BRANCH picks the branch to clone (default personal);
@@ -84,26 +85,20 @@ render_service() {
   done <"$1/systemd/skills-sync.service"
 }
 
-# Real (non-symlink) entries in the harness skill dirs named like a skill that
-# link-skills.sh links, using its selection, so they would be replaced.
-real_dirs_in_the_way() {
-  local skill_md name dest
-  while IFS= read -r -d '' skill_md; do
-    name="$(basename "$(dirname "$skill_md")")"
-    for dest in "${DESTS[@]}"; do
-      if [ -e "$dest/$name" ] && [ ! -L "$dest/$name" ]; then
-        echo "$dest/$name"
-      fi
-    done
-  done < <(find "$1/skills" -name SKILL.md -not -path '*/node_modules/*' -not -path '*/deprecated/*' -not -path '*/misc/*' -print0)
-}
-
 confirm_replacing() {
-  local in_the_way dir answer
-  in_the_way="$(real_dirs_in_the_way "$1" | sort)"
+  local in_the_way entry answer
+  # shellcheck source=scripts/skills-in-the-way.sh
+  . "$1/scripts/skills-in-the-way.sh"
+  in_the_way="$(skills_in_the_way "$1" "${DESTS[@]}" | sort -u)"
   [ -z "$in_the_way" ] && return 0
-  log "these real directories have a skill's name; link-skills.sh will delete them and link the skill from $1 instead:"
-  while IFS= read -r dir; do echo "  $dir"; done <<<"$in_the_way"
+  log "these entries have a skill's name and are not links into $1; link-skills.sh will delete or repoint them to the skill in $1:"
+  while IFS= read -r entry; do
+    if [ -L "$entry" ]; then
+      echo "  $entry -> $(readlink "$entry")"
+    else
+      echo "  $entry"
+    fi
+  done <<<"$in_the_way"
   if [ "$assume_yes" = 1 ]; then
     log "--yes given, replacing them"
     return 0
@@ -124,7 +119,7 @@ for arg in "$@"; do
   case "$arg" in
     --uninstall) uninstall; exit 0 ;;
     -y|--yes) assume_yes=1 ;;
-    -h|--help) sed -n '4,22p' "${BASH_SOURCE[0]}" 2>/dev/null | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help) sed -n '4,23p' "${BASH_SOURCE[0]}" 2>/dev/null | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) die "unknown argument: $arg (use --uninstall or --yes)" ;;
   esac
 done
@@ -145,7 +140,7 @@ else
   clone="$DEFAULT_CLONE"
 fi
 
-for f in scripts/skills-sync.sh scripts/link-skills.sh systemd/skills-sync.service systemd/skills-sync.timer; do
+for f in scripts/skills-sync.sh scripts/skills-in-the-way.sh scripts/link-skills.sh systemd/skills-sync.service systemd/skills-sync.timer; do
   [ -f "$clone/$f" ] || die "$clone has no $f; is it an up to date clone of $REPO_URL?"
 done
 
