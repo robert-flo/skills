@@ -54,6 +54,8 @@ scripts/install-sync.sh
 curl -fsSL https://raw.githubusercontent.com/robert-flo/skills/personal/scripts/install-sync.sh | bash
 ```
 
+If `~/.claude/skills` or `~/.agents/skills` has a real directory with a skill's name, the installer lists it and asks before `link-skills.sh` replaces it with a symlink; without a terminal it stops, and `--yes` (`-y`) replaces without asking.
+
 Uninstall (removes the units and `~/.local/state/skills-sync`, keeps the clone and the symlinks):
 ```bash
 scripts/install-sync.sh --uninstall
