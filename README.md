@@ -44,6 +44,28 @@ npx skills@latest update NAME_OF_SKILL
 npx skills@latest update -g
 ```
 
+### 5. Keep a local clone in sync automatically
+
+`scripts/install-sync.sh` installs a systemd user timer that checks `origin/personal` every 15 minutes. When there are new commits it fast-forwards the clone, runs `scripts/link-skills.sh` and removes the skill symlinks that broke. A clone that is dirty or on another branch is left alone, with one desktop notification.
+
+Install from a clone, or without one (it then uses, or clones, `~/Work/tries/pj-fleet/fo-skills`):
+```bash
+scripts/install-sync.sh
+curl -fsSL https://raw.githubusercontent.com/robert-flo/skills/personal/scripts/install-sync.sh | bash
+```
+
+If `~/.claude/skills` or `~/.agents/skills` has a real directory with a skill's name, the installer lists it and asks before `link-skills.sh` replaces it with a symlink; without a terminal it stops, and `--yes` (`-y`) replaces without asking.
+
+Uninstall (removes the units and `~/.local/state/skills-sync`, keeps the clone and the symlinks):
+```bash
+scripts/install-sync.sh --uninstall
+```
+
+See what it did:
+```bash
+journalctl --user -u skills-sync
+```
+
 ---
 
 ## 🧠 The three skill makers, in short
