@@ -8,8 +8,8 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 
 - **[grill-me](./grill-me/SKILL.md)**: Get relentlessly interviewed about a plan or design until every branch of the design tree is resolved.
 - **[handoff](./handoff/SKILL.md)**: Compact the current conversation into a handoff document so another agent can continue the work.
-- **[post-session-review](./post-session-review/SKILL.md)**: At the end of a work session, critically review what changed, what is missing, ranked next steps, hindsight, and bold ideas, then ask what to do next.
-- **[show-me](./show-me/SKILL.md)**: Help the user understand the current topic visually with concise diagrams, code-shape sketches, and focused HTML artifacts.
+- **[ro-post-session-review](./ro-post-session-review/SKILL.md)**: At the end of a work session, critically review what changed, what is missing, ranked next steps, hindsight, and bold ideas, then ask what to do next.
+- **[ro-show-me](./ro-show-me/SKILL.md)**: Help the user understand the current topic visually with concise diagrams, code-shape sketches, and focused HTML artifacts.
 - **[teach](./teach/SKILL.md)**: Teach the user a new skill or concept over multiple sessions, using the current directory as a stateful teaching workspace.
 - **[to-questionnaire](./to-questionnaire/SKILL.md)**: Turn a decision you can't answer alone into a Markdown questionnaire for the one person who can (filled in async, or together over a meeting).
 - **[wait-what](./wait-what/SKILL.md)**: Fire this the moment a message doesn't land. The agent re-pitches it with the context you're missing, in plain English, using your `GLOSSARY.md` vocabulary.
@@ -19,5 +19,5 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 Model- or user-reachable (rich trigger phrasing so the model can reach for them).
 
 - **[grilling](./grilling/SKILL.md)**: Interview the user relentlessly about a plan, decision, or idea until every branch of the design tree is resolved.
-- **[restate-goals](./restate-goals/SKILL.md)**: Restate the user's goals and problem before acting, stopping for a short confirmation before starting work.
+- **[ro-restate-goals](./ro-restate-goals/SKILL.md)**: Restate the user's goals and problem before acting, stopping for a short confirmation before starting work.
 - **[writing-for-agents](./writing-for-agents/SKILL.md)**: Writing documents for agents: skills, AGENTS.md/CLAUDE.md, and any doc an agent reaches by a pointer.

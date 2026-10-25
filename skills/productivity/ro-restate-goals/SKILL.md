@@ -1,5 +1,5 @@
 ---
-name: restate-goals
+name: ro-restate-goals
 description: "Restate the user's goals and the problem they are trying to solve before acting. Use when starting an open-ended request, when asked for a plan or work, or when the user invokes it by name."
 ---
 
