@@ -14,6 +14,12 @@ Inspired by [Matt Pocock's post on X](https://x.com/mattpocockuk/status/21050226
 
 ---
 
+## Naming convention
+
+My own skills (not from upstream) use the `ro-` prefix, e.g. `ro-restate-goals`, `ro-post-session-review`, `ro-show-me`. Upstream skills keep their names even when I modify them.
+
+---
+
 ## Install from this fork
 
 Use the `skills` CLI against `robert-flo/skills` (not `mattpocock/skills`):
