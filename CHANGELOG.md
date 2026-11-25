@@ -1,5 +1,31 @@
 # mattpocock-skills
 
+## 1.3.3
+
+### Patch Changes
+
+- [`cf07b69`](https://github.com/mattpocock/skills/commit/cf07b69d1bd962319c82c2a26af0ace66620dffc) Thanks [@robert-flo](https://github.com/robert-flo)! - Add `ro-post-session-review` skill: a critical end-of-session review of what changed, gaps against the goal, ranked next steps, hindsight, and bold ideas.
+
+- [`3f49106`](https://github.com/mattpocock/skills/commit/3f491060a0bdcc31942d7697432abccd8715dd78) Thanks [@robert-flo](https://github.com/robert-flo)! - Add `ro-restate-goals` skill to restate the user's goals and problem before acting, stopping for a short confirmation before starting work.
+
+- [`8fe23a2`](https://github.com/mattpocock/skills/commit/8fe23a23240921ed107956d750fa1fdda39fd67f) Thanks [@robert-flo](https://github.com/robert-flo)! - Add `ro-show-me` skill from HumanLayer to help the user understand topics visually with diagrams, call trees, diffs, and HTML artifacts.
+
+- [#1473](https://github.com/mattpocock/skills/pull/1473) [`4edd64a`](https://github.com/mattpocock/skills/commit/4edd64a19537607848e8ab999f95a370d3af8a49) Thanks [@mattpocock](https://github.com/mattpocock)! - `chief-of-staff` now centres on two jobs: delegate every task to a fresh subagent briefed with context pointers, relaying each result in 2 to 4 lines, and remember what it learned in the dated, commit-cited wiki. Improving the environment becomes a habit after each task rather than the first step of every message, and the schedules section and the tactical/strategic framing are gone.
+
+- [#1363](https://github.com/mattpocock/skills/pull/1363) [`5ae4816`](https://github.com/mattpocock/skills/commit/5ae481693d13b37d4d2c2c92d0b66d299c93e695) Thanks [@mattpocock](https://github.com/mattpocock)! - `chief-of-staff` now looks for a shared wiki before starting its own. It also runs `retro` on about one in five of its subagents' sessions, the ones where something went wrong first, and acts on the findings itself, and runs `to-spec`, `to-tickets` and `implement-spec` for large chunks of work, reading each skill by relative path so they can stay user-invoked.
+
+- [#1474](https://github.com/mattpocock/skills/pull/1474) [`419dac7`](https://github.com/mattpocock/skills/commit/419dac71f1dfe95e378bc1009f0b0fad2a3cb6ed) Thanks [@mattpocock](https://github.com/mattpocock)! - `chief-of-staff` relays lead with the outcome and anything the user must decide, adding detail only when it changes what they would do, in place of a fixed line count. The environment habit now runs after a task hit friction, as an offer to the user. It delegates the work rather than every task (description and opening line included): subagents do the work while questions, interviews and check-ins with the user stay in the main session.
+
+- [#1485](https://github.com/mattpocock/skills/pull/1485) [`2b7ab8c`](https://github.com/mattpocock/skills/commit/2b7ab8c9471fad3fca0a9c0c9e1f52153408172b) Thanks [@mattpocock](https://github.com/mattpocock)! - `domain-modeling` glossaries now show how terms relate inside their definitions: a definition that mentions another glossary term bolds it, and the sentence says how the two relate. Thanks to @stefaneg.
+
+- [#1342](https://github.com/mattpocock/skills/pull/1342) [`a496f55`](https://github.com/mattpocock/skills/commit/a496f5513d4a4cf889bc48e189e579f4b0bdf6aa) Thanks [@mattpocock](https://github.com/mattpocock)! - `implement-spec` now uses a fresh implementer subagent for each ticket and for the code-review fixes, instead of reusing an earlier implementer.
+
+- [`96a7a1f`](https://github.com/mattpocock/skills/commit/96a7a1fcce18c0737caa909e7dd3d50306de980c) Thanks [@robert-flo](https://github.com/robert-flo)! - Rename Roberto's personal skills with the `ro-` prefix: `post-session-review` → `ro-post-session-review`, `restate-goals` → `ro-restate-goals`, `show-me` → `ro-show-me`.
+
+- [#1453](https://github.com/mattpocock/skills/pull/1453) [`9201b96`](https://github.com/mattpocock/skills/commit/9201b96da4af2d663faa13bef984095bb69059b1) Thanks [@mattpocock](https://github.com/mattpocock)! - `software-factory` now installs with `npx skills add`: its description is quoted, so strict YAML parsers no longer read the colon in it as a nested mapping and skip the skill.
+
+- [#1316](https://github.com/mattpocock/skills/pull/1316) [`4ae2317`](https://github.com/mattpocock/skills/commit/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d) Thanks [@mattpocock](https://github.com/mattpocock)! - Add `software-factory`, an in-progress user-invoked reference skill: a glossary for designing a software factory (tasks, runs, runners, triggers, and the services they plug into), example tasks grouped by the problem they solve, surveys of the products that fill each slot (ticket trackers, git hosts, runners, observability platforms), and the questions that finish a design. Call it alongside a grilling session.
+
 ## 1.3.2
 
 ### Patch Changes
